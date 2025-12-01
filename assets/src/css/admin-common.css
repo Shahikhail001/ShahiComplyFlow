@@ -1,0 +1,605 @@
+/* ComplyFlow Admin Common Styles - Modern Blue Theme */
+
+:root {
+  --cf-bg: #f3f8fe;
+  --cf-gradient: linear-gradient(135deg,#1e3a8a 0%,#2563eb 50%,#0ea5e9 100%);
+  --cf-surface: #ffffff;
+  --cf-surface-alt: #f0f5fb;
+  --cf-border: #dbe4f3;
+  --cf-text: #1e293b;
+  --cf-muted: #64748b;
+  --cf-primary: #2563eb;
+  --cf-primary-soft: #3b82f6;
+  --cf-accent: #0ea5e9;
+  --cf-critical: #dc2626;
+  --cf-serious: #f97316;
+  --cf-moderate: #f59e0b;
+  --cf-success: #16a34a;
+  --cf-radius-sm: 6px;
+  --cf-radius-md: 12px;
+  --cf-radius-lg: 18px;
+  --cf-shadow-sm: 0 2px 4px -2px rgba(30,58,138,.12),0 4px 6px -1px rgba(30,58,138,.08);
+  --cf-shadow-md: 0 4px 8px -2px rgba(30,58,138,.15),0 6px 12px -1px rgba(30,58,138,.1);
+  --cf-shadow-lg: 0 12px 24px -6px rgba(30,58,138,.18);
+}
+
+/* Apply theme to all ComplyFlow admin pages */
+.toplevel_page_complyflow,
+[class*="complyflow_page_"] {
+  background: var(--cf-bg) !important;
+}
+
+/* Wrapper for all admin pages */
+.complyflow-admin-page {
+  background: var(--cf-bg);
+  margin: 0 -20px -20px;
+  padding: 0 0 60px;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+  color: var(--cf-text);
+  min-height: 100vh;
+}
+
+/* Page Header with Gradient */
+.complyflow-page-header {
+  background: var(--cf-gradient);
+  padding: 32px 40px 80px;
+  margin: 0 0 -40px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 var(--cf-radius-lg) var(--cf-radius-lg);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.15);
+}
+
+.complyflow-page-header h1 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  margin: 0 0 8px;
+  text-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+.complyflow-page-header .page-subtitle {
+  color: rgba(255,255,255,.9);
+  font-size: 15px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.complyflow-page-header .page-title-action {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.3);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  padding: 10px 18px;
+  font-weight: 500;
+  border-radius: var(--cf-radius-md);
+  transition: all .25s;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 12px;
+}
+
+.complyflow-page-header .page-title-action:hover {
+  background: rgba(255,255,255,.25);
+  border-color: rgba(255,255,255,.5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.2);
+}
+
+/* Content Container */
+.complyflow-page-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Card Containers */
+.complyflow-card {
+  background: var(--cf-surface);
+  border: 1px solid var(--cf-border);
+  border-radius: var(--cf-radius-lg);
+  box-shadow: var(--cf-shadow-sm);
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+.complyflow-card h2 {
+  color: var(--cf-text);
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--cf-surface-alt);
+}
+
+.complyflow-card h3 {
+  color: var(--cf-text);
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.complyflow-card p.description {
+  color: var(--cf-muted);
+  font-size: 14px;
+  margin: -8px 0 20px;
+}
+
+/* Tables */
+.complyflow-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+
+.complyflow-table thead {
+  background: var(--cf-surface-alt);
+}
+
+.complyflow-table th {
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--cf-muted);
+  border-bottom: 2px solid var(--cf-border);
+}
+
+.complyflow-table th:first-child {
+  border-top-left-radius: var(--cf-radius-sm);
+}
+
+.complyflow-table th:last-child {
+  border-top-right-radius: var(--cf-radius-sm);
+}
+
+.complyflow-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--cf-border);
+  color: var(--cf-text);
+}
+
+.complyflow-table tr:last-child td {
+  border-bottom: none;
+}
+
+.complyflow-table tbody tr:hover {
+  background: var(--cf-surface-alt);
+}
+
+/* Buttons */
+.complyflow-button,
+.complyflow-button-primary {
+  background: var(--cf-gradient);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--cf-radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .25s;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: var(--cf-shadow-sm);
+}
+
+.complyflow-button:hover,
+.complyflow-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--cf-shadow-md);
+  color: #fff;
+}
+
+.complyflow-button-secondary {
+  background: var(--cf-surface);
+  color: var(--cf-primary);
+  border: 1px solid var(--cf-border);
+  padding: 10px 20px;
+  border-radius: var(--cf-radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .25s;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.complyflow-button-secondary:hover {
+  background: var(--cf-surface-alt);
+  border-color: var(--cf-primary);
+  transform: translateY(-2px);
+}
+
+/* Badges */
+.complyflow-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.complyflow-badge-critical {
+  background: #fee2e2;
+  color: var(--cf-critical);
+}
+
+.complyflow-badge-warning {
+  background: #fed7aa;
+  color: var(--cf-serious);
+}
+
+.complyflow-badge-success {
+  background: #d1fae5;
+  color: var(--cf-success);
+}
+
+.complyflow-badge-info {
+  background: #dbeafe;
+  color: var(--cf-primary);
+}
+
+/* Status indicators */
+.complyflow-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.complyflow-status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: block;
+}
+
+.complyflow-status-pending::before {
+  background: var(--cf-moderate);
+}
+
+.complyflow-status-completed::before {
+  background: var(--cf-success);
+}
+
+.complyflow-status-failed::before {
+  background: var(--cf-critical);
+}
+
+.complyflow-status-processing::before {
+  background: var(--cf-primary);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Tabs */
+.nav-tab-wrapper {
+  margin: 24px 0 32px;
+  border-bottom: 2px solid var(--cf-border);
+}
+
+.nav-tab {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--cf-muted);
+  padding: 12px 20px;
+  margin: 0 4px -2px 0;
+  font-weight: 500;
+  transition: all .25s;
+}
+
+.nav-tab:hover {
+  color: var(--cf-primary);
+  background: var(--cf-surface-alt);
+}
+
+.nav-tab-active,
+.nav-tab-active:hover {
+  border-bottom-color: var(--cf-primary);
+  color: var(--cf-primary);
+  background: transparent;
+}
+
+.nav-tab .dashicons {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Form Tables */
+.form-table {
+  background: transparent;
+}
+
+.form-table th {
+  padding: 16px 12px 16px 0;
+  font-weight: 600;
+  color: var(--cf-text);
+  vertical-align: top;
+  width: 220px;
+}
+
+.form-table td {
+  padding: 16px 12px;
+}
+
+.form-table td .description {
+  display: block;
+  margin: 8px 0 0;
+  color: var(--cf-muted);
+  font-size: 13px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.form-table tr {
+  border-bottom: 1px solid var(--cf-border);
+}
+
+.form-table tr:last-child {
+  border-bottom: none;
+}
+
+.form-table input[type="text"],
+.form-table input[type="email"],
+.form-table input[type="url"],
+.form-table input[type="number"],
+.form-table select,
+.form-table textarea {
+  border: 1px solid var(--cf-border);
+  border-radius: var(--cf-radius-sm);
+  padding: 8px 12px;
+  font-size: 14px;
+  transition: border-color .25s, box-shadow .25s;
+}
+
+.form-table input[type="text"]:focus,
+.form-table input[type="email"]:focus,
+.form-table input[type="url"]:focus,
+.form-table input[type="number"]:focus,
+.form-table select:focus,
+.form-table textarea:focus {
+  border-color: var(--cf-primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.1);
+  outline: none;
+}
+
+/* Stats Grid */
+.complyflow-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin: 24px 0;
+}
+
+.complyflow-stat-card {
+  background: var(--cf-surface);
+  border: 1px solid var(--cf-border);
+  border-radius: var(--cf-radius-md);
+  padding: 20px;
+  box-shadow: var(--cf-shadow-sm);
+  transition: transform .25s, box-shadow .25s;
+}
+
+.complyflow-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--cf-shadow-md);
+}
+
+.complyflow-stat-label {
+  color: var(--cf-muted);
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 8px;
+}
+
+.complyflow-stat-value {
+  color: var(--cf-text);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Empty State */
+.complyflow-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--cf-muted);
+}
+
+.complyflow-empty-state .dashicons {
+  font-size: 64px;
+  width: 64px;
+  height: 64px;
+  opacity: 0.3;
+  margin-bottom: 16px;
+}
+
+.complyflow-empty-state h3 {
+  color: var(--cf-text);
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.complyflow-empty-state p {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+/* Loading Spinner */
+.complyflow-loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(37,99,235,.2);
+  border-top-color: var(--cf-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Notices */
+.complyflow-notice {
+  padding: 14px 18px;
+  border-left: 4px solid;
+  border-radius: var(--cf-radius-sm);
+  margin: 20px 0;
+}
+
+.complyflow-notice-success {
+  background: #d1fae5;
+  border-color: var(--cf-success);
+  color: #065f46;
+}
+
+.complyflow-notice-warning {
+  background: #fed7aa;
+  border-color: var(--cf-serious);
+  color: #92400e;
+}
+
+.complyflow-notice-error {
+  background: #fee2e2;
+  border-color: var(--cf-critical);
+  color: #991b1b;
+}
+
+.complyflow-notice-info {
+  background: #dbeafe;
+  border-color: var(--cf-primary);
+  color: #1e40af;
+}
+
+/* Utility Classes */
+.cf-mt-0 { margin-top: 0; }
+.cf-mt-1 { margin-top: 8px; }
+.cf-mt-2 { margin-top: 16px; }
+.cf-mt-3 { margin-top: 24px; }
+.cf-mt-4 { margin-top: 32px; }
+
+.cf-mb-0 { margin-bottom: 0; }
+.cf-mb-1 { margin-bottom: 8px; }
+.cf-mb-2 { margin-bottom: 16px; }
+.cf-mb-3 { margin-bottom: 24px; }
+.cf-mb-4 { margin-bottom: 32px; }
+
+.cf-flex { display: flex; }
+.cf-flex-between { display: flex; justify-content: space-between; align-items: center; }
+.cf-flex-center { display: flex; justify-content: center; align-items: center; }
+.cf-gap-1 { gap: 8px; }
+.cf-gap-2 { gap: 16px; }
+.cf-gap-3 { gap: 24px; }
+
+.cf-text-muted { color: var(--cf-muted); }
+.cf-text-primary { color: var(--cf-primary); }
+.cf-text-success { color: var(--cf-success); }
+.cf-text-warning { color: var(--cf-serious); }
+.cf-text-error { color: var(--cf-critical); }
+
+/* Modal Styles */
+.complyflow-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.complyflow-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.complyflow-modal-content {
+  position: relative;
+  background: var(--cf-bg);
+  border-radius: var(--cf-radius-lg);
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow: auto;
+  z-index: 1;
+}
+
+.complyflow-modal-header {
+  padding: 24px;
+  border-bottom: 1px solid var(--cf-border);
+}
+
+.complyflow-modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--cf-text);
+}
+
+.complyflow-modal-body {
+  padding: 24px;
+}
+
+.complyflow-modal-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--cf-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Select Styling */
+.complyflow-select {
+  padding: 8px 12px;
+  border: 1px solid var(--cf-border);
+  border-radius: var(--cf-radius-sm);
+  background: var(--cf-surface);
+  color: var(--cf-text);
+  font-size: 14px;
+  transition: border-color .25s, box-shadow .25s;
+}
+
+.complyflow-select:focus {
+  border-color: var(--cf-primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.1);
+  outline: none;
+}
+
+/* Small Button Variant */
+.complyflow-button-sm {
+  padding: 6px 12px !important;
+  font-size: 13px !important;
+  min-height: 0 !important;
+}
+
+.complyflow-button-sm .dashicons {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+}

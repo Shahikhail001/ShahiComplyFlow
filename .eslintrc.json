@@ -1,0 +1,30 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jquery": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "globals": {
+    "wp": "readonly",
+    "complyflow": "readonly",
+    "complyflowAdmin": "readonly",
+    "Alpine": "readonly",
+    "Chart": "readonly"
+  },
+  "rules": {
+    "indent": ["error", 4],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "no-unused-vars": "warn",
+    "no-console": "off"
+  }
+}

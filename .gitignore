@@ -1,0 +1,55 @@
+node_modules/
+vendor/
+.DS_Store
+.idea/
+.vscode/
+*.log
+*.swp
+*.swo
+*~
+.env
+.env.local
+
+# Build directories
+/assets/dist/
+/coverage/
+/.phpunit.cache/
+
+# Composer
+composer.lock
+composer.phar
+
+# NPM
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# WordPress
+wp-config.php
+wp-content/uploads/
+wp-content/blogs.dir/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/cache/
+wp-content/temp/
+
+# Testing
+/tests/_output/
+/tests/_support/_generated/
+
+# OS Files
+Thumbs.db
+Desktop.ini
+._*
+
+# IDE
+*.sublime-project
+*.sublime-workspace
+.phpstorm.meta.php
+_ide_helper.php
+
+# Temporary files
+*.tmp
+*.bak
+*.old
+*.orig

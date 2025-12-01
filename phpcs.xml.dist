@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<ruleset name="ComplyFlow Coding Standards">
+    <description>WordPress Coding Standards for ComplyFlow plugin</description>
+
+    <!-- Show progress and sniff codes -->
+    <arg value="ps"/>
+    
+    <!-- Parallel processing -->
+    <arg name="parallel" value="8"/>
+    
+    <!-- Colors in CLI -->
+    <arg name="colors"/>
+    
+    <!-- Show warning codes -->
+    <arg value="n"/>
+
+    <!-- Check all PHP files in includes and main plugin file -->
+    <file>./complyflow.php</file>
+    <file>./includes</file>
+    <file>./uninstall.php</file>
+
+    <!-- Exclude vendor and node_modules -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/assets/dist/*</exclude-pattern>
+    <exclude-pattern>*/tests/*</exclude-pattern>
+
+    <!-- Use WordPress Coding Standards -->
+    <rule ref="WordPress">
+        <!-- Exclude rules that conflict with modern PHP -->
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+    </rule>
+
+    <!-- Use WordPress-Extra -->
+    <rule ref="WordPress-Extra">
+        <!-- Allow short array syntax -->
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+    </rule>
+
+    <!-- Use WordPress-Docs -->
+    <rule ref="WordPress-Docs"/>
+
+    <!-- Use WordPress-VIP standards for security -->
+    <rule ref="WordPress-VIP-Go">
+        <exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.file_get_contents_file_get_contents"/>
+    </rule>
+
+    <!-- PHP 8.0+ compatibility -->
+    <config name="testVersion" value="8.0-"/>
+    <rule ref="PHPCompatibility"/>
+
+    <!-- Text domain check -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="complyflow"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Prefix all globals -->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="complyflow"/>
+                <element value="ComplyFlow"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Allow for modern spacing rules -->
+    <rule ref="WordPress.WhiteSpace.ControlStructureSpacing">
+        <properties>
+            <property name="blank_line_check" value="true"/>
+        </properties>
+    </rule>
+
+    <!-- Minimum PHP version -->
+    <config name="minimum_supported_wp_version" value="6.4"/>
+
+    <!-- Disallow long array syntax -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+
+    <!-- PSR-4 Autoloading -->
+    <rule ref="PSR1.Classes.ClassDeclaration"/>
+    
+    <!-- Enforce strong type declarations -->
+    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes"/>
+</ruleset>

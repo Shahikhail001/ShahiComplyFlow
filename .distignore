@@ -1,0 +1,112 @@
+# Build Exclusions List for CodeCanyon Package
+
+## Development Files (EXCLUDE)
+node_modules/
+.git/
+.gitignore
+.eslintrc.json
+.prettierrc.json
+
+## Development Documentation (EXCLUDE)
+ADVANCED_FEATURES_GUIDE.md
+ADVANCED_FEATURES_IMPLEMENTATION_SUMMARY.md
+BOOLEAN_VALIDATION_FIX.md
+CODE_TESTING_VALIDATION_REPORT.md
+CODECANYON_AUDIT_SUMMARY.md
+CODECANYON_SUBMISSION_PLAN.md
+COMPLYFLOW_FEATURES.md
+COMPLIANCE_MODES_GUIDE.md
+CONSENT_BANNER_FIX.md
+CONSENT_MANAGER_FIX.md
+COOKIE_INVENTORY_ENHANCEMENTS.md
+COOKIE_INVENTORY_IMPLEMENTATION_SUMMARY.md
+COOKIE_INVENTORY_TESTING.md
+COOKIE_INVENTORY_USER_GUIDE.md
+DASHBOARD_ANALYTICS_ENHANCEMENT.md
+DASHBOARD_ENHANCEMENT_SUMMARY.md
+DASHBOARD_HELP_NOTES.md
+DASHBOARD_VISUAL_GUIDE.md
+DEVELOPMENT_PLAN.md
+GLOBAL_COMPLIANCE_AUDIT.md
+HELP_NOTES_VISUAL_EXAMPLES.md
+IMPLEMENTATION_COMPLETE.md
+INSTALLATION_CHECKLIST.md
+LEGAL_DOCUMENTS_AUDIT_AND_IMPLEMENTATION.md
+LEGAL_DOCUMENTS_IMPLEMENTATION_SUMMARY.md
+LEGAL_DOCUMENTS_V4.7.0_COMPLETE.md
+MODAL_UI_IMPROVEMENTS.md
+PHASE_0_COMPLETE.md
+PHASE_1_COMPLETION.md
+PHASE_2_COMPLETION.md
+QUESTIONNAIRE_BUG_FIX.md
+QUICK_START.md
+QUICKSTART.md
+STRATEGIC_POLICY_ENHANCEMENT_PLAN.md
+TESTING_COMPLETE.md
+TESTING.md
+
+## Test Files (EXCLUDE)
+check-db.php
+debug-questionnaire.php
+insert-sample-data.php
+migrate-cookie-table.php
+security-audit.php
+test-advanced-features.ps1
+test-ajax.php
+test-consent-banner-debug.php
+test-cookie-scan.php
+test-questionnaire-validation.php
+test-system.ps1
+
+## Build Configuration (EXCLUDE)
+phpcs.xml.dist
+phpstan.neon
+postcss.config.js
+tailwind.config.js
+vite.config.js
+package.json
+package-lock.json
+composer.lock
+
+## Build/Cache Folders (EXCLUDE)
+var/
+tools/
+plan
+
+## Source Assets (EXCLUDE - keep only dist/)
+assets/src/
+
+## Documentation (EXCLUDE - keep only essential)
+documentation/
+
+## Production Files (INCLUDE)
+complyflow.php
+uninstall.php
+README.txt
+README.md
+LICENSE.txt
+CHANGELOG.md
+composer.json
+VersionManager.php
+
+## Production Folders (INCLUDE)
+assets/dist/
+assets/images/
+includes/
+languages/
+templates/
+docs/
+vendor/ (rebuild with composer install --no-dev)
+
+## Essential Documentation (INCLUDE)
+docs/API-REFERENCE.md
+docs/CODE-QUALITY-REPORT.md
+docs/COMPATIBILITY.md
+docs/DEMO-SETUP.md
+docs/INSTALLATION.md
+docs/PACKAGING-CHECKLIST.md
+docs/SCREENSHOTS.md
+docs/TESTING-MATRIX.md
+docs/USER-GUIDE.md
+docs/VIDEO-SCRIPT.md
+CODECANYON-SUBMISSION-CHECKLIST.md

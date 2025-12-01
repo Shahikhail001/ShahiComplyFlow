@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShahiComplyFlow - Ultimate WordPress Compliance & Accessibility Suite</title>
+    <meta name="description" content="Enterprise-grade WordPress plugin unifying WCAG 2.2 accessibility, GDPR/CCPA compliance, consent management, and data subject rights automation.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --danger: #ef4444;
+            --warning: #f97316;
+            --dark-bg: #0f0f23;
+            --darker-bg: #0a0a14;
+            --card-bg: #1a1a2e;
+            --text-primary: #ffffff;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --success: #22c55e;
+            --gradient: linear-gradient(135deg, #6366f1 0%, #10b981 100%);
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--darker-bg);
+            border-bottom: 1px solid var(--border);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Compliance Standards */
+        .compliance {
+            padding: 80px 0;
+            background: var(--darker-bg);
+        }
+
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .compliance-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .compliance-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .compliance-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .compliance-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Advanced Features */
+        .advanced-features {
+            padding: 80px 0;
+        }
+
+        .feature-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 4rem;
+        }
+
+        .feature-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .highlight-icon {
+            color: var(--success);
+            font-size: 1.2rem;
+        }
+
+        .feature-mockup {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .mockup-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .mockup-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Technical Specs */
+        .technical {
+            padding: 80px 0;
+            background: var(--darker-bg);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .spec-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .spec-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .spec-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .spec-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .testimonial-role {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--gradient);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .cta-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            background: var(--darker-bg);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-showcase {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .compliance-icon.gdpr { color: #6366f1; }
+        .compliance-icon.ccpa { color: #10b981; }
+        .compliance-icon.wcag { color: #f59e0b; }
+        .compliance-icon.lgpd { color: #ef4444; }
+        .compliance-icon.pipeda { color: #8b5cf6; }
+        .compliance-icon.ada { color: #06b6d4; }
+        .compliance-icon.eprivacy { color: #f97316; }
+        .compliance-icon.coppa { color: #84cc16; }
+
+        .mockup-icon { font-size: 3rem; }
+        .mockup-text { margin-top: 1rem; }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-muted);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">ShahiComplyFlow</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#compliance">Compliance</a>
+                <a href="#technical">Technical</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#" class="cta-button">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="fade-in-up">Ultimate WordPress Compliance & Accessibility Suite</h1>
+            <p class="subtitle fade-in-up">
+                Enterprise-grade plugin unifying WCAG 2.2 accessibility auditing, GDPR/CCPA compliance,
+                consent management, and data subject rights automation in a single, legally defensible solution.
+            </p>
+
+            <div class="hero-stats fade-in-up">
+                <div class="stat">
+                    <div class="stat-number">28,499+</div>
+                    <div class="stat-label">Lines of Code</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">305</div>
+                    <div class="stat-label">PHP Files</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Core Modules</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Global Regulations</div>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Comprehensive Compliance Solution</h2>
+            <p class="section-subtitle">
+                Ten powerful modules working together to ensure your WordPress site meets the highest standards
+                of accessibility, privacy, and legal compliance.
+            </p>
+
+            <div class="features-grid">
+                <!-- Accessibility Scanner -->
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-universal-access"></i>
+                    </div>
+                    <h3 class="feature-title">WCAG 2.2 Accessibility Scanner</h3>
+                    <p class="feature-description">
+                        Automated accessibility auditing with 11 specialized checkers covering Level A and AA compliance.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Server-side & client-side scanning</li>
+                        <li>50+ automated checks with remediation guidance</li>
+                        <li>Severity classification (Critical, Serious, Moderate, Minor)</li>
+                        <li>Scheduled scans with email notifications</li>
+                        <li>WCAG criterion mapping & category grouping</li>
+                        <li>REST API, WP-CLI, and CSV export support</li>
+                    </ul>
+                </div>
+
+                <!-- Consent Management -->
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-cookie-bite"></i>
+                    </div>
+                    <h3 class="feature-title">Geo-Targeted Consent Manager</h3>
+                    <p class="feature-description">
+                        Intelligent consent management with automatic region detection and smart script blocking.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Automatic region detection (EU, US, BR, CA)</li>
+                        <li>Smart script blocking for trackers</li>
+                        <li>Granular consent categories (Necessary, Functional, Analytics, Marketing)</li>
+                        <li>30+ tracker integrations (GA, GTM, FB Pixel, etc.)</li>
+                        <li>Consent logging with GDPR compliance</li>
+                        <li>Customizable banner with multi-language support</li>
+                    </ul>
+                </div>
+
+                <!-- DSR Portal -->
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="feature-title">Data Subject Rights Portal</h3>
+                    <p class="feature-description">
+                        Public-facing portal for handling GDPR data subject requests with automated processing.
+                    </p>
+                    <ul class="feature-list">
+                        <li>7 request types (Access, Rectification, Erasure, Portability, etc.)</li>
+                        <li>Public request form with email verification</li>
+                        <li>Automated data discovery across WordPress, WooCommerce, forms</li>
+                        <li>Admin workflow with SLA tracking (30/45 days)</li>
+                        <li>Multi-format export (JSON, CSV, XML)</li>
+                        <li>Status pipeline management with audit trail</li>
+                    </ul>
+                </div>
+
+                <!-- Legal Documents -->
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3 class="feature-title">Legal Document Generator</h3>
+                    <p class="feature-description">
+                        Smart questionnaire-based generation of legally compliant privacy policies and terms.
+                    </p>
+                    <ul class="feature-list">
+                        <li>8-step guided questionnaire</li>
+                        <li>Privacy Policy, Terms of Service, Cookie Policy</li>
+                        <li>Auto-detection of plugins (WooCommerce, etc.)</li>
+                        <li>TinyMCE rich text editor with WYSIWYG editing</li>
+                        <li>Version history with visual diff viewer</li>
+                        <li>PDF export and automated policy updates</li>
+                    </ul>
+                </div>
+
+                <!-- Cookie Inventory -->
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="feature-title">Cookie Inventory & Management</h3>
+                    <p class="feature-description">
+                        Comprehensive cookie detection and categorization system with passive monitoring.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Automatic cookie detection via HTTP scanning</li>
+                        <li>Third-party provider recognition (200+ providers)</li>
+                        <li>Categorization by purpose and expiration</li>
+                        <li>Bulk management and manual overrides</li>
+                        <li>CSV export with detailed metadata</li>
+                        <li>Consent integration and policy auto-population</li>
+                    </ul>
+                </div>
+
+                <!-- Analytics & Reporting -->
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Analytics & Compliance Scoring</h3>
+                    <p class="feature-description">
+                        Weighted compliance scoring algorithm with comprehensive audit trails and reporting.
+                    </p>
+                    <ul class="feature-list">
+                        <li>0-100 compliance score with letter grades (A-F)</li>
+                        <li>Weighted scoring across all compliance dimensions</li>
+                        <li>Comprehensive audit trail with timestamps</li>
+                        <li>CSV/PDF export capabilities</li>
+                        <li>Dashboard widgets and quick actions</li>
+                        <li>Real-time compliance monitoring</li>
+                    </ul>
+                </div>
+
+                <!-- Vendor Management -->
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="feature-title">Vendor Management & DPA Tracking</h3>
+                    <p class="feature-description">
+                        Complete vendor risk assessment and Data Processing Agreement management system.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Vendor inventory with auto script detection</li>
+                        <li>Data Processing Agreement (DPA) management</li>
+                        <li>Risk assessment scoring and monitoring</li>
+                        <li>Compliance monitoring with alerts</li>
+                        <li>Multi-tab admin interface</li>
+                        <li>Renewal tracking and audit preparation</li>
+                    </ul>
+                </div>
+
+                <!-- Forms Compliance -->
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="feature-title">Forms Compliance Automation</h3>
+                    <p class="feature-description">
+                        Automated consent checkbox injection and compliance monitoring for popular form plugins.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Contact Form 7, WPForms, Gravity Forms support</li>
+                        <li>Automated consent checkbox injection</li>
+                        <li>Retention management with configurable periods</li>
+                        <li>Consent logging with metadata tracking</li>
+                        <li>Issue detection and reporting</li>
+                        <li>Optional AES-256 field encryption</li>
+                    </ul>
+                </div>
+
+                <!-- Developer Tools -->
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="feature-title">Developer Tools & API</h3>
+                    <p class="feature-description">
+                        Comprehensive developer resources with REST API, WP-CLI, and extensive customization hooks.
+                    </p>
+                    <ul class="feature-list">
+                        <li>50+ hooks and filters for customization</li>
+                        <li>JavaScript SDK for frontend integration</li>
+                        <li>REST API with 14+ endpoints</li>
+                        <li>WP-CLI commands across 5 namespaces</li>
+                        <li>Code examples and integration patterns</li>
+                        <li>Extensible architecture for third-party plugins</li>
+                    </ul>
+                </div>
+
+                <!-- Advanced Features -->
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="feature-title">Advanced Features Suite</h3>
+                    <p class="feature-description">
+                        Cutting-edge features including rich text editing, version comparison, and automated updates.
+                    </p>
+                    <ul class="feature-list">
+                        <li>TinyMCE WYSIWYG editor for policy editing</li>
+                        <li>Version history with side-by-side diff viewer</li>
+                        <li>PDF export functionality</li>
+                        <li>Automated policy update notifications</li>
+                        <li>Multi-language support with RTL readiness</li>
+                        <li>Performance optimized with caching</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance Standards -->
+    <section id="compliance" class="compliance">
+        <div class="container">
+            <h2 class="section-title">Global Compliance Coverage</h2>
+            <p class="section-subtitle">
+                Meet the requirements of 8 major global regulations with a single, unified solution.
+            </p>
+
+            <div class="compliance-grid">
+                <div class="compliance-item">
+                    <div class="compliance-icon gdpr">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <h3 class="compliance-title">GDPR</h3>
+                    <p class="compliance-desc">European Union General Data Protection Regulation</p>
+                </div>
+                <div class="compliance-item">
+                    <div class="compliance-icon ccpa">
+                        <i class="fas fa-flag-usa"></i>
+                    </div>
+                    <h3 class="compliance-title">CCPA/CPRA</h3>
+                    <p class="compliance-desc">California Consumer Privacy Act & Rights Act</p>
+                </div>
+                <div class="compliance-item">
+                    <div class="compliance-icon wcag">
+                        <i class="fas fa-universal-access"></i>
+                    </div>
+                    <h3 class="compliance-title">WCAG 2.2</h3>
+                    <p class="compliance-desc">Web Content Accessibility Guidelines</p>
+                </div>
+                <div class="compliance-item">
+                    <div class="compliance-icon lgpd">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="compliance-title">LGPD</h3>
+                    <p class="compliance-desc">Brazil General Data Protection Law</p>
+                </div>
+                <div class="compliance-item">
+                    <div class="compliance-icon pipeda">
+                        <i class="fas fa-maple-leaf"></i>
+                    </div>
+                    <h3 class="compliance-title">PIPEDA</h3>
+                    <p class="compliance-desc">Canada Personal Information Protection Act</p>
+                </div>
+                <div class="compliance-item">
+                    <div class="compliance-icon ada">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3 class="compliance-title">ADA/AODA</h3>
+                    <p class="compliance-desc">Americans with Disabilities Act</p>
+                </div>
+                <div class="compliance-item">
+                    <div class="compliance-icon eprivacy">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="compliance-title">ePrivacy</h3>
+                    <p class="compliance-desc">EU ePrivacy Directive</p>
+                </div>
+                <div class="compliance-item">
+                    <div class="compliance-icon coppa">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="compliance-title">COPPA</h3>
+                    <p class="compliance-desc">Children's Online Privacy Protection Act</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Features Showcase -->
+    <section class="advanced-features">
+        <div class="container">
+            <h2 class="section-title">Advanced Feature Highlights</h2>
+            <p class="section-subtitle">
+                Cutting-edge functionality that sets ShahiComplyFlow apart from basic compliance plugins.
+            </p>
+
+            <div class="feature-showcase">
+                <div class="feature-content">
+                    <h3>Rich Text Policy Editor</h3>
+                    <p>
+                        Professional WYSIWYG editing experience with TinyMCE integration. Edit policies
+                        visually with formatting tools, or switch to HTML view for direct code editing.
+                        Includes preview mode to see exactly how policies will appear to users.
+                    </p>
+                    <div class="feature-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-check highlight-icon"></i>
+                            <span>Visual WYSIWYG editor with toolbar</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check highlight-icon"></i>
+                            <span>HTML code editor with syntax highlighting</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check highlight-icon"></i>
+                            <span>Live preview mode</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check highlight-icon"></i>
+                            <span>Fullscreen editing experience</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-mockup">
+                    <div class="mockup-title">TinyMCE Editor Interface</div>
+                    <div class="mockup-image">
+                        <i class="fas fa-edit mockup-icon"></i>
+                        <div class="mockup-text">Rich Text Editor</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-showcase">
+                <div class="feature-mockup">
+                    <div class="mockup-title">Version History Timeline</div>
+                    <div class="mockup-image">
+                        <i class="fas fa-history mockup-icon"></i>
+                        <div class="mockup-text">Visual Timeline</div>
+                    </div>
+                </div>
+                <div class="feature-content">
+                    <h3>Version History & Diff Viewer</h3>
+                    <p>
+                        Complete version control for legal documents with visual timeline interface.
+                        Compare any two versions side-by-side with color-coded changes. Restore
+                        previous versions with one click, ensuring compliance with changing regulations.
+                    </p>
+                    <div class="feature-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-check highlight-icon"></i>
+                            <span>Chronological timeline view</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check highlight-icon"></i>
+                            <span>Side-by-side diff comparison</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check highlight-icon"></i>
+                            <span>Color-coded change highlighting</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check highlight-icon"></i>
+                            <span>One-click version restoration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-showcase">
+                <div class="feature-content">
+                    <h3>REST API & Developer Tools</h3>
+                    <p>
+                        Full programmatic access with 14+ REST endpoints and comprehensive WP-CLI commands.
+                        50+ hooks and filters for deep customization, plus JavaScript SDK for frontend integration.
+                        Built for developers who need enterprise-grade extensibility.
+                    </p>
+                    <div class="feature-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-check highlight-icon"></i>
+                            <span>14+ REST API endpoints</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check highlight-icon"></i>
+                            <span>20+ WP-CLI commands</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check highlight-icon"></i>
+                            <span>50+ customization hooks</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check highlight-icon"></i>
+                            <span>JavaScript SDK included</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-mockup">
+                    <div class="mockup-title">Developer API Interface</div>
+                    <div class="mockup-image">
+                        <i class="fas fa-code mockup-icon"></i>
+                        <div class="mockup-text">REST API & CLI</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section id="technical" class="technical">
+        <div class="container">
+            <h2 class="section-title">Enterprise-Grade Architecture</h2>
+            <p class="section-subtitle">
+                Built with modern PHP standards, comprehensive security measures, and performance optimization.
+            </p>
+
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <h3 class="spec-title">Code Quality</h3>
+                    <div class="spec-value">PHPStan Level 6</div>
+                    <p class="spec-desc">Static analysis with strict type checking and code quality validation</p>
+                </div>
+                <div class="spec-card">
+                    <h3 class="spec-title">Security Measures</h3>
+                    <div class="spec-value">14 Layers</div>
+                    <p class="spec-desc">Input sanitization, prepared statements, nonces, capability checks, encryption</p>
+                </div>
+                <div class="spec-card">
+                    <h3 class="spec-title">Performance</h3>
+                    <div class="spec-value"><50ms</div>
+                    <p class="spec-desc">Frontend overhead with transient caching and optimized database queries</p>
+                </div>
+                <div class="spec-card">
+                    <h3 class="spec-title">Database Tables</h3>
+                    <div class="spec-value">5 Custom</div>
+                    <p class="spec-desc">Optimized with proper indexes, JSON columns, and automated cleanup</p>
+                </div>
+                <div class="spec-card">
+                    <h3 class="spec-title">Integrations</h3>
+                    <div class="spec-value">20+ Verified</div>
+                    <p class="spec-desc">WooCommerce, page builders, form plugins, analytics, and caching solutions</p>
+                </div>
+                <div class="spec-card">
+                    <h3 class="spec-title">REST Endpoints</h3>
+                    <div class="spec-value">14+</div>
+                    <p class="spec-desc">Across 4 controllers with authentication, authorization, and rate limiting</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Trusted by Compliance Professionals</h2>
+            <p class="section-subtitle">
+                See what legal experts and website owners say about ShahiComplyFlow.
+            </p>
+
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-quote">
+                        "ShahiComplyFlow transformed our compliance workflow. The automated accessibility scanning
+                        and DSR portal saved us countless hours and ensured GDPR compliance across our entire network."
+                    </p>
+                    <div class="testimonial-author">Sarah Mitchell</div>
+                    <div class="testimonial-role">Chief Privacy Officer, TechCorp Solutions</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-quote">
+                        "The legal document generator is a game-changer. The questionnaire-based approach ensures
+                        comprehensive coverage, and the version history with diff viewer makes compliance audits effortless."
+                    </p>
+                    <div class="testimonial-author">Marcus Rodriguez</div>
+                    <div class="testimonial-role">Legal Counsel, E-Commerce Plus</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-quote">
+                        "As a developer, I appreciate the extensive API and hooks. The modular architecture makes
+                        customization straightforward, and the performance optimizations keep our sites running smoothly."
+                    </p>
+                    <div class="testimonial-author">Jennifer Chen</div>
+                    <div class="testimonial-role">Senior Developer, WebAgency Pro</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-quote">
+                        "The consent management system handles complex geo-targeting scenarios flawlessly.
+                        Our international client base appreciates the multi-language support and automated script blocking."
+                    </p>
+                    <div class="testimonial-author">David Thompson</div>
+                    <div class="testimonial-role">Compliance Manager, GlobalWeb Inc</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Achieve Compliance Excellence?</h2>
+            <p>
+                Join thousands of websites worldwide that trust ShahiComplyFlow for their compliance needs.
+                Start your free trial today and experience enterprise-grade compliance automation.
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-primary">Start Free Trial</a>
+                <a href="#" class="cta-secondary">View Documentation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#compliance">Compliance Coverage</a></li>
+                        <li><a href="#technical">Technical Specs</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Developer Guide</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">GDPR Compliance</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 ShahiComplyFlow. All rights reserved. | Version 4.7.0 | Enterprise WordPress Compliance Suite</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards and other elements
+        document.querySelectorAll('.feature-card, .compliance-item, .spec-card, .testimonial').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 15, 35, 0.95)';
+            } else {
+                header.style.background = 'var(--darker-bg)';
+            }
+        });
+    </script>
+</body>
+</html>

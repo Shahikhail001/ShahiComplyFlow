@@ -1,0 +1,18 @@
+parameters:
+    level: 5
+    paths:
+        - includes
+        - complyflow.php
+    excludePaths:
+        - includes/Lib/vendor
+    bootstrapFiles:
+        - wordpress-stubs.php
+    scanDirectories:
+        - vendor
+    ignoreErrors:
+        # WordPress dynamic properties
+        - '#Undefined variable: \$wpdb#'
+        - '#Access to an undefined property WP_#'
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    reportUnmatchedIgnoredErrors: false

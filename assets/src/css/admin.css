@@ -1,0 +1,208 @@
+/**
+ * Admin Styles
+ *
+ * Styling for ComplyFlow admin interface.
+ *
+ * @package ComplyFlow
+ * @since 1.0.0
+ */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Admin Container */
+.complyflow-admin {
+    @apply cf-max-w-7xl cf-mx-auto cf-p-6;
+}
+
+/* Dashboard Widgets */
+.complyflow-widget {
+    @apply cf-bg-white cf-rounded-lg cf-shadow-sm cf-p-6 cf-mb-6;
+}
+
+.complyflow-widget-title {
+    @apply cf-text-lg cf-font-semibold cf-text-gray-900 cf-mb-4;
+}
+
+.complyflow-widget-content {
+    @apply cf-text-gray-600;
+}
+
+/* Tabs */
+.complyflow-tabs {
+    @apply cf-flex cf-border-b cf-border-gray-200 cf-mb-6;
+}
+
+.complyflow-tab {
+    @apply cf-px-6 cf-py-3 cf-text-sm cf-font-medium cf-text-gray-600 cf-border-b-2 cf-border-transparent hover:cf-text-gray-900 hover:cf-border-gray-300 cf-cursor-pointer cf-transition-colors;
+}
+
+.complyflow-tab.active {
+    @apply cf-text-primary-600 cf-border-primary-600;
+}
+
+.complyflow-tab-content {
+    @apply cf-hidden;
+}
+
+.complyflow-tab-content.active {
+    @apply cf-block;
+}
+
+/* Forms */
+.complyflow-form-group {
+    @apply cf-mb-6;
+}
+
+.complyflow-label {
+    @apply cf-block cf-text-sm cf-font-medium cf-text-gray-700 cf-mb-2;
+}
+
+.complyflow-input {
+    @apply cf-w-full cf-px-4 cf-py-2 cf-border cf-border-gray-300 cf-rounded-lg focus:cf-ring-2 focus:cf-ring-primary-500 focus:cf-border-primary-500;
+}
+
+.complyflow-textarea {
+    @apply cf-w-full cf-px-4 cf-py-2 cf-border cf-border-gray-300 cf-rounded-lg focus:cf-ring-2 focus:cf-ring-primary-500 focus:cf-border-primary-500 cf-resize-y;
+}
+
+.complyflow-select {
+    @apply cf-w-full cf-px-4 cf-py-2 cf-border cf-border-gray-300 cf-rounded-lg focus:cf-ring-2 focus:cf-ring-primary-500 focus:cf-border-primary-500;
+}
+
+/* Buttons */
+.complyflow-button {
+    @apply cf-px-4 cf-py-2 cf-bg-primary-600 cf-text-white cf-rounded-lg hover:cf-bg-primary-700 cf-transition-colors cf-font-medium;
+}
+
+.complyflow-button-secondary {
+    @apply cf-px-4 cf-py-2 cf-bg-gray-200 cf-text-gray-700 cf-rounded-lg hover:cf-bg-gray-300 cf-transition-colors cf-font-medium;
+}
+
+.complyflow-button-danger {
+    @apply cf-px-4 cf-py-2 cf-bg-red-600 cf-text-white cf-rounded-lg hover:cf-bg-red-700 cf-transition-colors cf-font-medium;
+}
+
+.complyflow-button:disabled {
+    @apply cf-opacity-50 cf-cursor-not-allowed;
+}
+
+/* Toggle Switch */
+.complyflow-toggle {
+    @apply cf-relative cf-inline-block cf-w-12 cf-h-6;
+}
+
+.complyflow-toggle input {
+    @apply cf-opacity-0 cf-w-0 cf-h-0;
+}
+
+.complyflow-toggle-slider {
+    @apply cf-absolute cf-cursor-pointer cf-inset-0 cf-bg-gray-300 cf-rounded-full cf-transition-colors;
+}
+
+.complyflow-toggle-slider:before {
+    @apply cf-absolute cf-content-[''] cf-h-5 cf-w-5 cf-left-0.5 cf-bottom-0.5 cf-bg-white cf-rounded-full cf-transition-transform;
+}
+
+.complyflow-toggle input:checked + .complyflow-toggle-slider {
+    @apply cf-bg-primary-600;
+}
+
+.complyflow-toggle input:checked + .complyflow-toggle-slider:before {
+    @apply cf-translate-x-6;
+}
+
+/* Tables */
+.complyflow-table {
+    @apply cf-w-full cf-border-collapse;
+}
+
+.complyflow-table thead {
+    @apply cf-bg-gray-50;
+}
+
+.complyflow-table th {
+    @apply cf-px-6 cf-py-3 cf-text-left cf-text-xs cf-font-medium cf-text-gray-500 cf-uppercase cf-tracking-wider;
+}
+
+.complyflow-table td {
+    @apply cf-px-6 cf-py-4 cf-whitespace-nowrap cf-text-sm cf-text-gray-900;
+}
+
+.complyflow-table tbody tr:hover {
+    @apply cf-bg-gray-50;
+}
+
+/* Badges */
+.complyflow-badge {
+    @apply cf-inline-flex cf-items-center cf-px-2.5 cf-py-0.5 cf-rounded-full cf-text-xs cf-font-medium;
+}
+
+.complyflow-badge-success {
+    @apply cf-bg-green-100 cf-text-green-800;
+}
+
+.complyflow-badge-warning {
+    @apply cf-bg-yellow-100 cf-text-yellow-800;
+}
+
+.complyflow-badge-error {
+    @apply cf-bg-red-100 cf-text-red-800;
+}
+
+.complyflow-badge-info {
+    @apply cf-bg-blue-100 cf-text-blue-800;
+}
+
+/* Score Display */
+.complyflow-score {
+    @apply cf-relative cf-inline-flex cf-items-center cf-justify-center;
+}
+
+.complyflow-score-value {
+    @apply cf-absolute cf-text-4xl cf-font-bold cf-text-gray-900;
+}
+
+/* Empty State */
+.complyflow-empty-state {
+    @apply cf-text-center cf-py-12;
+}
+
+.complyflow-empty-state-icon {
+    @apply cf-mx-auto cf-h-12 cf-w-12 cf-text-gray-400 cf-mb-4;
+}
+
+.complyflow-empty-state-title {
+    @apply cf-text-lg cf-font-medium cf-text-gray-900 cf-mb-2;
+}
+
+.complyflow-empty-state-description {
+    @apply cf-text-sm cf-text-gray-500;
+}
+
+/* Loading Spinner */
+.complyflow-spinner {
+    @apply cf-inline-block cf-animate-spin cf-rounded-full cf-h-5 cf-w-5 cf-border-2 cf-border-gray-300 cf-border-t-primary-600;
+}
+
+/* Notices */
+.complyflow-notice {
+    @apply cf-p-4 cf-rounded-lg cf-mb-4;
+}
+
+.complyflow-notice-success {
+    @apply cf-bg-green-50 cf-text-green-800 cf-border cf-border-green-200;
+}
+
+.complyflow-notice-error {
+    @apply cf-bg-red-50 cf-text-red-800 cf-border cf-border-red-200;
+}
+
+.complyflow-notice-warning {
+    @apply cf-bg-yellow-50 cf-text-yellow-800 cf-border cf-border-yellow-200;
+}
+
+.complyflow-notice-info {
+    @apply cf-bg-blue-50 cf-text-blue-800 cf-border cf-border-blue-200;
+}
