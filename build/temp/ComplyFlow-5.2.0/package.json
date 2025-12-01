@@ -1,0 +1,45 @@
+{
+  "name": "complyflow",
+  "version": "5.1.1",
+  "description": "Ultimate WordPress Compliance & Accessibility Suite",
+  "main": "assets/src/js/admin.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "watch": "vite build --watch",
+    "lint": "eslint assets/src/js/**/*.js",
+    "lint:fix": "eslint assets/src/js/**/*.js --fix",
+    "format": "prettier --write \"assets/src/**/*.{js,css}\""
+  },
+  "keywords": [
+    "wordpress",
+    "compliance",
+    "accessibility",
+    "gdpr",
+    "ccpa",
+    "wcag"
+  ],
+  "author": "ShahiSoft Team",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.54",
+    "eslint-config-prettier": "^9.0",
+    "postcss": "^8.4.32",
+    "prettier": "^3.1",
+    "tailwindcss": "^3.3",
+    "terser": "^5.44.1",
+    "vite": "^5.0"
+  },
+  "dependencies": {
+    "alpinejs": "^3.13",
+    "chart.js": "^4.4"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

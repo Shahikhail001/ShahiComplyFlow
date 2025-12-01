@@ -1,0 +1,91 @@
+/**
+ * Frontend Styles
+ *
+ * Public-facing styles for ComplyFlow components.
+ *
+ * @package ComplyFlow
+ * @since 1.0.0
+ */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Consent Banner */
+.complyflow-consent-banner {
+    @apply cf-fixed cf-bottom-0 cf-left-0 cf-right-0 cf-bg-white cf-shadow-lg cf-z-50 cf-p-6;
+}
+
+.complyflow-consent-banner-content {
+    @apply cf-max-w-7xl cf-mx-auto;
+}
+
+.complyflow-consent-banner-text {
+    @apply cf-text-gray-700 cf-mb-4;
+}
+
+.complyflow-consent-banner-actions {
+    @apply cf-flex cf-flex-wrap cf-gap-3;
+}
+
+.complyflow-consent-button {
+    @apply cf-px-6 cf-py-2 cf-rounded-lg cf-font-medium cf-transition-colors;
+}
+
+.complyflow-consent-button-primary {
+    @apply cf-bg-primary-600 cf-text-white hover:cf-bg-primary-700;
+}
+
+.complyflow-consent-button-secondary {
+    @apply cf-bg-gray-200 cf-text-gray-700 hover:cf-bg-gray-300;
+}
+
+/* DSR Portal Form */
+.complyflow-dsr-form {
+    @apply cf-max-w-2xl cf-mx-auto cf-p-6 cf-bg-white cf-rounded-lg cf-shadow;
+}
+
+.complyflow-dsr-form-group {
+    @apply cf-mb-6;
+}
+
+.complyflow-dsr-label {
+    @apply cf-block cf-text-sm cf-font-medium cf-text-gray-700 cf-mb-2;
+}
+
+.complyflow-dsr-input {
+    @apply cf-w-full cf-px-4 cf-py-2 cf-border cf-border-gray-300 cf-rounded-lg focus:cf-ring-2 focus:cf-ring-primary-500;
+}
+
+.complyflow-dsr-textarea {
+    @apply cf-w-full cf-px-4 cf-py-2 cf-border cf-border-gray-300 cf-rounded-lg focus:cf-ring-2 focus:cf-ring-primary-500 cf-resize-y;
+}
+
+.complyflow-dsr-button {
+    @apply cf-w-full cf-px-6 cf-py-3 cf-bg-primary-600 cf-text-white cf-rounded-lg hover:cf-bg-primary-700 cf-font-medium;
+}
+
+/* Privacy Policy Display */
+.complyflow-policy {
+    @apply cf-max-w-none cf-text-gray-800 cf-leading-relaxed;
+}
+
+.complyflow-policy h1 {
+    @apply cf-text-3xl cf-font-bold cf-mb-4;
+}
+
+.complyflow-policy h2 {
+    @apply cf-text-2xl cf-font-semibold cf-mt-8 cf-mb-4;
+}
+
+.complyflow-policy h3 {
+    @apply cf-text-xl cf-font-semibold cf-mt-6 cf-mb-3;
+}
+
+.complyflow-policy p {
+    @apply cf-mb-4;
+}
+
+.complyflow-policy ul {
+    @apply cf-list-disc cf-list-inside cf-mb-4;
+}
